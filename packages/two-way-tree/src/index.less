@@ -1,0 +1,121 @@
+.tw-tree {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  // link style
+  .left-tree-link {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    height: 1px;
+  }
+
+  .right-tree-link {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    height: 1px;
+    background: #ddd;
+  }
+
+  // side line style
+  .left-side-line-top {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    right: 0;
+    display: block;
+    width: 1px;
+    height: 50%;
+  }
+
+  .right-side-line-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 50%;
+    background: #ddd;
+  }
+
+  .left-side-line-bottom {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    right: 0;
+    display: block;
+    width: 1px;
+    height: 50%;
+  }
+
+  .right-side-line-bottom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 50%;
+  }
+
+  // tree label
+  .tree-label {
+    .inner-label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      text-align: center;
+      border-radius: 3px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .is-right {
+    position: relative;
+
+    // 从左往右 ---------------------------------------------------
+    &.tree-node {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:nth-of-type(1) > .right-side-line-top {
+        width: 0;
+      }
+
+      &:last-child > .right-side-line-bottom {
+        width: 0;
+      }
+    }
+  }
+
+  // 翻转 ---------------------------
+  .is-left {
+    position: relative;
+    flex-direction: row-reverse;
+
+    &.tree-node {
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:nth-of-type(1) > .left-side-line-top {
+        width: 0;
+      }
+
+      &:last-child > .left-side-line-bottom {
+        width: 0;
+      }
+    }
+  }
+}
